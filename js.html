@@ -1,0 +1,16 @@
+<script>
+  function changeStatus(data) {
+    var row = data.parentNode.rowIndex;
+    var temp = table1.rows[row].cells[7].innerText;
+    // alert(temp);
+    if(temp == "未 ▶"){
+    table1.rows[row].cells[7].innerHTML = "入庫済";
+    }else if(temp == "入庫済 ▶"){
+    table1.rows[row].cells[7].innerHTML = "出庫済"; 
+    }
+
+    var key = Number(table1.rows[row].cells[0].innerText)
+    google.script.run.updateStatus(key);
+}
+
+</script>
