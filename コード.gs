@@ -30,19 +30,17 @@ function doPost(e) {
   let sheet = SpreadsheetApp.getActive().getActiveSheet();
   let values = sheet.getDataRange().getValues();
 
-  // sheet.getRange("N3").setValue(e.parameters['bikou'])
-  // if (e.parameters['bikou'] != "") {
-  //   let template = HtmlService.createTemplateFromFile("finish");
-  //   return template.evaluate();
-  // }
   sheet.getRange("N1").setValue(e.parameters['search'])
   sheet.getRange("N2").setValue(e.parameters['status'])
+
+  var dt = new Date(e.parameters['search']);
+  ddd =Utilities.formatDate( dt, 'JST', 'yyyy/MM/dd')
 
   let res = [];
   let li = [];
   for (i = 1; i < values.length; i++) {
     li = values[i];
-    if (li[REGISTRATION_COL - 1] == e.parameters['search'] || "" == e.parameters['search']) {
+    if (li[REGISTRATION_COL - 1] == ddd || "" == ddd) {
       if (li[STATUS_COL - 1] == e.parameters['status'] || "" == e.parameters['status']) {
         res.push(li);
       }
