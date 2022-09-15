@@ -4,13 +4,29 @@
     var temp = table1.rows[row].cells[7].innerText;
     // alert(temp);
     if(temp == "未 ▶"){
-    table1.rows[row].cells[7].innerHTML = "入庫済";
+      table1.rows[row].cells[7].innerHTML = "入庫済 <button type='button' id='update' class='btn btn-outline-success contents_button'>▶</button>";
     }else if(temp == "入庫済 ▶"){
-    table1.rows[row].cells[7].innerHTML = "出庫済"; 
+      table1.rows[row].cells[7].innerHTML = "出庫済 <button type='button' id='update' class='btn btn-outline-success contents_button'>▶</button>"; 
+    }else{
+      table1.rows[row].cells[7].innerHTML = "未 <button type='button' id='update' class='btn btn-outline-success contents_button'>▶</button>"; 
     }
+    
 
     var key = Number(table1.rows[row].cells[0].innerText)
     google.script.run.updateStatus(key);
-}
+  }
+  function AddRequest() {
+    var itemName = document.getElementById('itemName').value;
+    var maker = document.getElementById('maker').value;
+    var firstName = document.getElementById('firstName').value;
+    var email = document.getElementById('email').value;
+    var itemCount = document.getElementById('itemCount').value;
+    var bikou = document.getElementById('bikou').value;
 
+    var li = {};
+    li = {itemName:itemName,maker:maker,tanto:firstName,email:email,itemCount:itemCount,bikou:bikou}
+
+    google.script.run.updateRequest(li);
+
+  }
 </script>
