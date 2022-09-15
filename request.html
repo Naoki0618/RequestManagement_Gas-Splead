@@ -15,6 +15,7 @@
   <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous">
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   <script src="https://kit.fontawesome.com/004d1bfd3c.js" crossorigin="anonymous"></script>
 </head>
 
@@ -31,12 +32,12 @@
           <ul class="navbar-nav">
             <li class="nav-item active">
               <a class="nav-link"
-                href="https://script.google.com/a/macros/ikeden.com/s/AKfycbxfOzfhyvfRYhq-RKpN3vfFzBHoJeQjvN0UsnKrNtIm16AS_kaNXt0NVZ4CeNO1TlbvGg/exec"
+                href="https://script.google.com/a/macros/ikeden.com/s/AKfycbwgMOiOz9z5yLp3ewiAzKY7bsi2PMUlO4ZUhmlifSxf2YgFGNiNZX_kff3vQKhvcz-fjw/exec"
                 style="color:white">サンプル検索 <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link"
-                href="https://script.google.com/a/macros/ikeden.com/s/AKfycbxfOzfhyvfRYhq-RKpN3vfFzBHoJeQjvN0UsnKrNtIm16AS_kaNXt0NVZ4CeNO1TlbvGg/exec?p=request.html"
+                href="https://script.google.com/a/macros/ikeden.com/s/AKfycbwgMOiOz9z5yLp3ewiAzKY7bsi2PMUlO4ZUhmlifSxf2YgFGNiNZX_kff3vQKhvcz-fjw/exec?p=request.html"
                 style="color:white">申請</a>
             </li>
           </ul>
@@ -45,30 +46,37 @@
     </div>
   </div>
   <div class="container">
-    <div class="py-5 text-center">
-      <h2>サンプル申請フォーム</h2>
-    </div>
 
+    <div class="py-5 text-center" style="height:50px">
+      <div class="row">
+        <a class="btn btn-warning" type="button"
+          href="https://script.google.com/a/macros/ikeden.com/s/AKfycbwgMOiOz9z5yLp3ewiAzKY7bsi2PMUlO4ZUhmlifSxf2YgFGNiNZX_kff3vQKhvcz-fjw/exec"
+          style="margin-left: auto;color:white; height:50%; font-size:25px;"><i class="fa-regular fa-circle-left"></i></a>
+        <div class="col-md-5 mb-5" style="margin-right: auto;">
+          <h2>サンプル申請フォーム</h2>
+        </div>
+      </div>
+    </div>
     <form
-      action="https://script.google.com/a/macros/ikeden.com/s/AKfycbxfOzfhyvfRYhq-RKpN3vfFzBHoJeQjvN0UsnKrNtIm16AS_kaNXt0NVZ4CeNO1TlbvGg/exec"
+      action="https://script.google.com/a/macros/ikeden.com/s/AKfycbwgMOiOz9z5yLp3ewiAzKY7bsi2PMUlO4ZUhmlifSxf2YgFGNiNZX_kff3vQKhvcz-fjw/exec"
       method="post">
       <div class="row request_row" style="margin-left: auto;margin-right: auto;">
         <div class="col-md-3" style="margin-left: auto;">
           <label for="firstName">登録者名</label>
-          <input type="text" class="form-control" id="firstName" placeholder="" value="">
+          <input type="text" class="form-control" id="firstName" placeholder="※必須※" value="">
         </div>
         <div class="col-md-3" style="margin-right: auto;">
-          <label for=" email">Email <span class="text-muted">(Optional)</span></label>
+          <label for=" email">Email</label>
           <input type="email" class="form-control" id="email" placeholder="you@example.com">
         </div>
       </div>
       <div class="col-md-6 mb-6 request_row" style="margin-left: auto;margin-right: auto;">
         <label for="firstName">メーカー名</label>
-        <input type="text" class="form-control" id="maker" placeholder="" value="" required>
+        <input type="text" class="form-control" id="maker" placeholder="" value="※必須※" required>
       </div>
       <div class="col-md-6 mb-6 request_row" style="margin-left: auto;margin-right: auto;">
         <label for="firstName">商品名</label>
-        <input type="text" class="form-control" id="itemName" placeholder="" value="" required>
+        <input type="text" class="form-control" id="itemName" placeholder="※必須※" value="" required>
       </div>
       <div class="row request_row" style="margin-left: auto;margin-right: auto;">
         <div class="col-md-3 mb-3" style="margin-left: auto;">
@@ -76,18 +84,18 @@
           <input type="text" class="form-control" id="itemCount" placeholder="" value="" required>
         </div>
 
-        <div class="col-md-3 mb-3" style="margin-right: auto;padding-top: 20px;">
+        <div class="col-md-3 mb-3" style="margin-right: auto;padding-top: 20px;margin-left: 0px;padding-left: 40px;">
           <div class="d-block my-3">
             <div class="row">
-              <div class="col-md-4 custom-control custom-radio">
+              <div class="col-md-4 custom-control custom-radio" style="padding: 0px;">
                 <input id="jouon" name="paymentMethod" type="radio" class="custom-control-input" checked required>
                 <label class="custom-control-label" for="jouon">常温</label>
               </div>
-              <div class="col-md-4 reizou-control custom-radio">
+              <div class="col-md-4 reizou-control custom-radio" style="padding: 0px;">
                 <input id="reizou" name="paymentMethod" type="radio" class="custom-control-input" required>
                 <label class="custom-control-label" for="reizou">冷蔵</label>
               </div>
-              <div class="col-md-4 custom-control custom-radio">
+              <div class="col-md-4 custom-control custom-radio" style="padding: 0px;">
                 <input id="reitou" name="paymentMethod" type="radio" class="custom-control-input" required>
                 <label class="custom-control-label" for="reitou">冷凍</label>
               </div>
@@ -101,9 +109,10 @@
       </div>
       <hr class="col-md-6 mb-6 request_row">
       <div class="col-md-6 mb-6" style="margin-left: auto;margin-right: auto;">
-        <button class="btn btn-primary btn-lg btn-block" id="request" onclick="AddRequest()">登録</button>
+        <button class="btn btn-primary btn-lg btn-block" id="request" type="button" onclick="AddRequest()">登録</button>
       </div>
     </form>
+  </div>
   </div>
 </body>
 

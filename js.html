@@ -11,22 +11,42 @@
       table1.rows[row].cells[7].innerHTML = "未 <button type='button' id='update' class='btn btn-outline-success contents_button'>▶</button>"; 
     }
     
-
     var key = Number(table1.rows[row].cells[0].innerText)
     google.script.run.updateStatus(key);
   }
   function AddRequest() {
-    var itemName = document.getElementById('itemName').value;
     var maker = document.getElementById('maker').value;
     var firstName = document.getElementById('firstName').value;
     var email = document.getElementById('email').value;
+    var itemName = document.getElementById('itemName').value;
     var itemCount = document.getElementById('itemCount').value;
     var bikou = document.getElementById('bikou').value;
 
     var li = {};
     li = {itemName:itemName,maker:maker,tanto:firstName,email:email,itemCount:itemCount,bikou:bikou}
 
-    google.script.run.updateRequest(li);
+    if( maker == "" ||  firstName == "" ||  itemName == "" ){
+      swal({
+        text: "必須項目への入力がありません。",
+        icon: "warning",
+        button: "OK",
+        closeOnClickOutside: false  //false:モーダルにする
+      })
 
+    }else{
+      google.script.run.updateRequest(li);
+      swal({
+        text: "登録しました",
+        icon: "success",
+        button: "OK",
+        closeOnClickOutside: false  //false:モーダルにする
+      })
+      document.getElementById('maker').value = "";
+      document.getElementById('firstName').value = "";
+      document.getElementById('email').value = "";
+      document.getElementById('itemName').value = "";
+      document.getElementById('itemCount').value = "";
+      document.getElementById('bikou').value = "";
+    }
   }
 </script>
