@@ -27,25 +27,40 @@ function doGet(e) {
 
 function doPost(e) {
 
+  // 履歴
   let sheet = SpreadsheetApp.getActive().getActiveSheet();
   let values = sheet.getDataRange().getValues();
 
-  sheet.getRange("N1").setValue(e.parameters['search'])
-  sheet.getRange("N2").setValue(e.parameters['status'])
+  // パラメータ
+  let se = e.parameters['search']
+  let st = e.parameters['status']
 
-  var dt = new Date(e.parameters['search']);
-  ddd =Utilities.formatDate( dt, 'JST', 'yyyy/MM/dd')
+  // 結果
+  let res;
 
-  let res = [];
-  let li = [];
-  for (i = 1; i < values.length; i++) {
-    li = values[i];
-    if (li[REGISTRATION_COL - 1] == ddd || "" == ddd) {
-      if (li[STATUS_COL - 1] == e.parameters['status'] || "" == e.parameters['status']) {
-        res.push(li);
-      }
-    }
-  };
+  // 日付をフォーマット
+  sheet.getRange("N1").setValue(se)
+  sheet.getRange("N2").setValue(st)
+  tmp = sheet.getRange("N1").getValue()
+  if (tmp != "") {
+    var dt = new Date(e.parameters['search']);
+    se = Utilities.formatDate(dt, 'JST', 'yyyy/MM/dd')
+  }else{
+    se = ""
+  }
+
+  // 条件に合わせてフィルター
+  res = values;
+  if("" != se){
+    res = res.filter(function (value) {
+        return value[REGISTRATION_COL - 1] == se;
+    })
+  }
+  if("" != st){
+    res = res.filter(function (value) {
+        return value[STATUS_COL - 1] == st;
+    })
+  }
 
   let template = HtmlService.createTemplateFromFile("index");
   template.links = res; // こうしておくとテンプレートの方で links という変数に値が入った状態で使える
@@ -72,14 +87,14 @@ function updateStatus(key) {
 };
 
 function updateRequest(li) {
-  
+
   var today = new Date();
   let sheet = SpreadsheetApp.getActive().getActiveSheet();
-  
-  sheet.getRange("N1").setValue(li['email'])
-  let lastRow = sheet.getLastRow()+1;
 
-  sheet.getRange(lastRow, KYE_COL).setValue(lastRow-1);
+  sheet.getRange("N1").setValue(li['email'])
+  let lastRow = sheet.getLastRow() + 1;
+
+  sheet.getRange(lastRow, KYE_COL).setValue(lastRow - 1);
   sheet.getRange(lastRow, REGISTRATION_COL).setValue(Utilities.formatDate(today, 'JST', 'yyyy/MM/dd'));
   sheet.getRange(lastRow, MAKER_COL).setValue(li['maker']);
   sheet.getRange(lastRow, ITEMNAME_COL).setValue(li['itemName']);
