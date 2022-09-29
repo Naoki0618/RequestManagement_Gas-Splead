@@ -137,6 +137,29 @@
     $('#table1').DataTable();
 } );  
   </script>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBynBUT9hHwnX_B8XRMtUXXpMY74gvYUHQ",
+    authDomain: "sample-1b0c4.firebaseapp.com",
+    projectId: "sample-1b0c4",
+    storageBucket: "sample-1b0c4.appspot.com",
+    messagingSenderId: "831305937641",
+    appId: "1:831305937641:web:6766278fc45006b319f678",
+    measurementId: "G-PYYQ684NYF"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 
 </html>

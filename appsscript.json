@@ -1,9 +1,16 @@
 {
   "timeZone": "Asia/Tokyo",
-  "dependencies": {},
+  "dependencies": {
+    "libraries": [{
+      "userSymbol": "FirestoreApp",
+      "libraryId": "1VUSl4b1r1eoNcRWotZM3e87ygkxvXltOgyDZhixqncz9lQ3MjfT1iKFw",
+      "version": "31",
+      "developmentMode": true
+    }]
+  },
   "webapp": {
-    "executeAs": "USER_DEPLOYING",
-    "access": "DOMAIN"
+    "access": "DOMAIN",
+    "executeAs": "USER_DEPLOYING"
   },
   "exceptionLogging": "STACKDRIVER",
   "runtimeVersion": "V8"
