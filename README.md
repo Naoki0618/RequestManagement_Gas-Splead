@@ -1,7 +1,8 @@
 # Sample(GAS)
 Google Apps Scriptを利用したWebアプリケーションです。<br>
 クラウドベースであるためPCやスマホなどからアクセスが可能です。<br>
-卸業者がメーカーから受け取るサンプル品の管理を想定しています。
+卸業者がメーカーから受け取るサンプル品の管理を想定しています。<br>
+参考：https://qiita.com/PmanRabbit/items/a76b9bc5a9d0239c9f78
 
 ## Dependency
 GAS、HTML、CSS、JavaScript<br>
