@@ -1,4 +1,4 @@
-# Sample(GAS)
+# RequestManagement_Gas-Splead
 Google Apps Scriptを利用したWebアプリケーションです。<br>
 クラウドベースであるためPCやスマホなどからアクセスが可能です。<br>
 卸業者がメーカーから受け取るサンプル品の管理を想定しています。
